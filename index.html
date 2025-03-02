@@ -19,7 +19,6 @@
         Your browser does not support the audio tag.
     </audio>
     
-    
     <div id="wrapper">
         <div class="flag__birthday">
             <img src="./images/1.png" alt="" width="350" class="flag__left">
@@ -276,16 +275,15 @@
             fcMobile.timeout("10", document.querySelector(".month"))
         }, 6000)
     }
-    document.addEventListener("mousemove", function playAudioOnce() {
+    document.addEventListener("", function playAudioOnce() {
     var audio = document.getElementById("myAudio");
     if (audio) {
-        audio.muted = true; // Ban đầu tắt tiếng để tránh bị chặn
         let playPromise = audio.play();
-        
+
         if (playPromise !== undefined) {
             playPromise.then(() => {
-                audio.muted = false; // Bỏ tắt tiếng sau khi đã play
-                document.removeEventListener("mousemove", playAudioOnce); // Xóa event sau lần đầu tiên
+                audio.muted = false; // Đảm bảo bỏ tắt tiếng nếu cần
+                document.removeEventListener("click", playAudioOnce); // Xóa sự kiện sau lần đầu tiên
             }).catch(error => console.log("Tự động phát bị chặn:", error));
         }
     }
