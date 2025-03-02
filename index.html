@@ -18,8 +18,8 @@
         <source src="https://nta0357182675.github.io/Happy-Birthday-My-Mom/music/I-Do-911.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
-    
-    
+
+
     <div id="wrapper">
         <div class="flag__birthday">
             <img src="./images/1.png" alt="" width="350" class="flag__left">
@@ -160,6 +160,15 @@
     </div>
 </body>
 <script>
+document.addEventListener("mousemove", function playAudioOnce() {
+    var audio = document.getElementById("myAudio");
+    if (audio) {
+        audio.muted = false; // Bỏ chế độ tắt tiếng
+        audio.play().catch(error => console.log("Tự động phát bị chặn:", error));
+        document.removeEventListener("mousemove", playAudioOnce); // Xóa event sau lần đầu tiên
+    }
+});
+
     let datetxt = "07/03/1976";
     let datatxtletter = "Hôm nay ngày 07/03 là sinh nhật của mẹ. Con và em chúc người phụ nữ của gia đình ta luôn mạnh khỏe, luôn hạnh phúc và luôn vui tươi trong cuộc sống, ngày càng xinh đẹp và mạnh khỏe hơn. Cảm ơn mẹ đã sinh ra chúng con, đã hy sinh vì gia đình và nuôi 2 anh em con khôn lớn thành người. Con và em luôn mong những điều tốt đẹp nhất tuyệt vời nhất sẽ đến với mẹ của chúng con. Yêu mẹ nhất trên đời💗";
     let titleLetter = "Gửi mẹ";
@@ -276,13 +285,6 @@
             fcMobile.timeout("10", document.querySelector(".month"))
         }, 6000)
     }
-    window.onload = function () {
-    var audio = document.getElementById("myAudio");
-    if (audio) {
-        audio.muted = false; // Bỏ chế độ tắt tiếng
-        audio.play().catch(error => console.log("Tự động phát bị chặn:", error));
-    }
-};
 
 
 </script>
