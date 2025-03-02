@@ -276,11 +276,13 @@
             fcMobile.timeout("10", document.querySelector(".month"))
         }, 6000)
     }
-    document.addEventListener("mouseover", function () {
+    window.onload = function () {
     var audio = document.getElementById("myAudio");
-    audio.muted = false; // Bỏ chế độ tắt tiếng
-    audio.play(); // Phát nhạc
-});
+    if (audio) {
+        audio.muted = false; // Bỏ chế độ tắt tiếng
+        audio.play().catch(error => console.log("Tự động phát bị chặn:", error));
+    }
+};
 
 
 </script>
