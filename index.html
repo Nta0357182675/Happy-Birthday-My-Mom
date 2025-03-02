@@ -275,7 +275,7 @@
             fcMobile.timeout("10", document.querySelector(".month"))
         }, 6000)
     }
-    document.addEventListener("mousemove", function playAudioOnce() {
+    document.addEventListener("click", function playAudioOnce() {
         var audio = document.getElementById("myAudio");
         if (audio.paused) { // Chỉ phát nếu nhạc chưa phát
             audio.muted = false; // Bỏ tắt tiếng
