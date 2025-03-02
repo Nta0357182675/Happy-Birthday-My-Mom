@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <audio id="myAudio" autoplay muted>
+    <audio id="myAudio" muted>
         <source src="https://nta0357182675.github.io/Happy-Birthday-My-Mom/music/I-Do-911.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
@@ -275,19 +275,14 @@
             fcMobile.timeout("10", document.querySelector(".month"))
         }, 6000)
     }
-    document.addEventListener("", function playAudioOnce() {
-    var audio = document.getElementById("myAudio");
-    if (audio) {
-        let playPromise = audio.play();
-
-        if (playPromise !== undefined) {
-            playPromise.then(() => {
-                audio.muted = false; // Đảm bảo bỏ tắt tiếng nếu cần
-                document.removeEventListener("click", playAudioOnce); // Xóa sự kiện sau lần đầu tiên
-            }).catch(error => console.log("Tự động phát bị chặn:", error));
+    document.addEventListener("mousemove", function playAudioOnce() {
+        var audio = document.getElementById("myAudio");
+        if (audio.paused) { // Chỉ phát nếu nhạc chưa phát
+            audio.muted = false; // Bỏ tắt tiếng
+            audio.play().catch(error => console.log("Lỗi phát nhạc:", error)); // Bắt lỗi nếu có
         }
-    }
-});
+        document.removeEventListener("mousemove", playAudioOnce); // Xóa sự kiện để chỉ chạy một lần
+    });
 
 
 </script>
