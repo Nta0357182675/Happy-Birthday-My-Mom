@@ -14,10 +14,11 @@
 </head>
 
 <body>
-    <audio id="myAudio" autoplay>
+    <audio id="myAudio" autoplay muted>
         <source src="https://nta0357182675.github.io/Happy-Birthday-My-Mom/music/I-Do-911.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
+    
     
     <div id="wrapper">
         <div class="flag__birthday">
@@ -275,10 +276,12 @@
             fcMobile.timeout("10", document.querySelector(".month"))
         }, 6000)
     }
-    document.addEventListener("onmouseover", function () {
-        var audio = document.getElementById("myAudio");
-        audio.play();
-    });
+    document.addEventListener("mouseover", function () {
+    var audio = document.getElementById("myAudio");
+    audio.muted = false; // Bỏ chế độ tắt tiếng
+    audio.play(); // Phát nhạc
+});
+
 
 </script>
 
